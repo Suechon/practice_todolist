@@ -221,10 +221,10 @@ components:
           description: "タスクのタイトル"
         start:
           type: string
-          description: "タスクの開始日YYYY/MM/DD"
+          description: "タスクの開始日YYYY-MM-DD"
         limit:
           type: string
-          description: "タスクの期限日YYYY/MM/DD"
+          description: "タスクの期限日YYYY-MM-DD"
         memo:
           type: string
           description: "タスクの詳細"
