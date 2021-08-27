@@ -72,11 +72,9 @@ export default {
       this.$axios
         .get("/task", { params: option })
         .then((response) => {
-          if (response.status == 200) {
-            this.tasks = response.data.data;
-            this.pageOption["total"] = response.data.paging.total;
-            this.pageOption["number"] = option.number;
-          }
+          this.tasks = response.data.data;
+          this.pageOption["total"] = response.data.paging.total;
+          this.pageOption["number"] = option.number;
         })
         .catch((e) => {
           this.store_setAlert({
@@ -91,9 +89,7 @@ export default {
       this.$axios
         .post("/task", task)
         .then((response) => {
-          if (response.status == 200) {
-            this.getTasks();
-          }
+          this.getTasks();
         })
         .catch((e) => {
           this.store_setAlert({
@@ -107,9 +103,7 @@ export default {
       this.$axios
         .put("/task/" + task.id, task)
         .then((response) => {
-          if (response.status == 200) {
-            this.getTasks();
-          }
+          this.getTasks();
         })
         .catch((e) => {
           this.store_setAlert({
@@ -136,9 +130,7 @@ export default {
       this.$axios
         .delete("/task/" + id, { id: id })
         .then((response) => {
-          if (response.status == 200) {
-            this.getTasks();
-          }
+          this.getTasks();
         })
         .catch((e) => {
           this.store_setAlert({
@@ -155,9 +147,7 @@ export default {
       this.$axios
         .patch("/task/" + task.id + "/status", param)
         .then((response) => {
-          if (response.status == 200) {
-            this.getTasks();
-          }
+          this.getTasks();
         })
         .catch((e) => {
           this.store_setAlert({
