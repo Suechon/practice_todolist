@@ -2,9 +2,6 @@
 <template>
   <v-col cols="12">
     <v-card class="mx-auto" width="344">
-      {{ copyTask }}<br />
-      <br />
-      {{ task }}
       <v-row class="mr-3">
         <v-card-subtitle class="ml-3">
           {{ this.id }}
@@ -14,7 +11,7 @@
 
       <v-card-title class="pt-0">
         <v-checkbox
-          v-model="copyTask.status"
+          v-model="status"
           @change="updateStatus($event)"
           class="mb-4"
           color="primary"
@@ -64,13 +61,20 @@ export default {
   data() {
     return {
       show: false,
-      copyTask: {},
     };
   },
 
   computed: {
     id() {
       return this.task.id;
+    },
+    status: {
+      get() {
+        return this.task.status;
+      },
+      set(val) {
+        this.task.status = val;
+      },
     },
     title() {
       return this.task.title;
@@ -94,7 +98,7 @@ export default {
       this.$emit("delete");
     },
     updateStatus() {
-      this.$emit("updateStatus", this.copyTask);
+      this.$emit("updateStatus", this.task);
     },
   },
 };
