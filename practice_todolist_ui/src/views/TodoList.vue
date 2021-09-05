@@ -19,7 +19,6 @@
               :task="task"
               @edit="editTask"
               @delete="deleteTask(task.id)"
-              @addTask="editTask"
               @updateStatus="updateStatus"
             />
           </div>

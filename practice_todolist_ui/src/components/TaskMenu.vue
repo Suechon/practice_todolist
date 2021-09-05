@@ -49,16 +49,14 @@ export default {
   }),
   methods: {
     event(title) {
-      if (title == "Edit") {
-        this.$emit("edit");
-      }
       if (title == "Delete") {
         this.$emit("delete");
       }
     },
-    edit(task) {
-      this.$emit("addTask", task);
+    edit(editTask) {
+      this.$emit("edit", editTask);
     },
+
     dialogOpen() {
       this.$refs.createTaskDialog.open();
     },

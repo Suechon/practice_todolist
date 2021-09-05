@@ -168,7 +168,6 @@ export default {
 
     open() {
       this.copyTask = Object.assign({}, this.task);
-
       this.dialog = true;
     },
   },

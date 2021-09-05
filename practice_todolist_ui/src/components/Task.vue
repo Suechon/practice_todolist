@@ -2,11 +2,16 @@
 <template>
   <v-col cols="12">
     <v-card class="mx-auto" width="344">
+      {{ copyTask }}<br />
+      <br />
+      {{ task }}
       <v-row class="mr-3">
-        <v-card-subtitle class="ml-3"> {{ copyTask.id }}</v-card-subtitle>
-        <v-spacer></v-spacer
-        ><TaskMenu :task="task" @edit="edit" @delete="del" @addTask="addTask"
+        <v-card-subtitle class="ml-3">
+          {{ this.id }}
+        </v-card-subtitle>
+        <v-spacer></v-spacer><TaskMenu :task="task" @edit="edit" @delete="del"
       /></v-row>
+
       <v-card-title class="pt-0">
         <v-checkbox
           v-model="copyTask.status"
@@ -15,11 +20,11 @@
           color="primary"
           hide-details
         ></v-checkbox>
-        {{ copyTask.title }}
+        {{ this.title }}
       </v-card-title>
 
       <v-card-subtitle>
-        Start: {{ copyTask.start }} <br />Limit: {{ copyTask.limit }}
+        Start: {{ this.startDate }} <br />Limit: {{ this.limitDate }}
       </v-card-subtitle>
       <v-row class="ml-3"> </v-row>
       <v-card-actions>
@@ -37,7 +42,7 @@
           <v-divider></v-divider>
 
           <v-card-text>
-            {{ copyTask.memo }}
+            {{ memo }}
           </v-card-text>
         </div>
       </v-expand-transition>
@@ -62,19 +67,31 @@ export default {
       copyTask: {},
     };
   },
-  computed: {},
-  mounted() {
-    this.copyTask = Object.assign({}, this.task);
+
+  computed: {
+    id() {
+      return this.task.id;
+    },
+    title() {
+      return this.task.title;
+    },
+    startDate() {
+      return this.task.start;
+    },
+    limitDate() {
+      return this.task.limit;
+    },
+    memo() {
+      return this.task.memo;
+    },
   },
+
   methods: {
     edit(task) {
       this.$emit("edit", task);
     },
     del() {
       this.$emit("delete");
-    },
-    addTask(task) {
-      this.$emit("addTask", task);
     },
     updateStatus() {
       this.$emit("updateStatus", this.copyTask);
