@@ -1,7 +1,7 @@
 ﻿# A5:ER FORMAT:15
 # A5:ER ENCODING:UTF8
 # A5:ER Mk-1 Copyright © 2007 m.matsubara
-# A5:SQL Mk-2 Version 2.16.0 Copyright © 1997 - 2021 m.matsubara
+# A5:SQL Mk-2 Version 2.16.1 Copyright © 1997 - 2021 m.matsubara
 #  https://a5m2.mmatsubara.com
 
 [Manager]
@@ -29,6 +29,7 @@ FooterRight=
 ShowPageoutRelation=1
 RDBMSType=6
 RDBMSTypeName=PostgreSQL
+GenerateComment=0
 GenerateCommentStatement=0
 GenerateCommentStatement_LName=0
 GenerateCommentStatement_Comment=0
@@ -80,3 +81,27 @@ Top=67
 ZOrder=4
 Width=648
 Height=230
+
+[Entity]
+PName=TASK_MANAGEMENT_BACKUP
+LName=タスク管理バックアップ
+Comment=
+TableOption=
+Page=Main
+Left=100
+Top=750
+Field="ID","ID","bigserial",,,"","タスクを管理する一意のID",$00000000,""
+Field="タイトル","TITLE","@VARCHAR(100)",,,"","タスクのタイトル",$FFFFFFFF,""
+Field="開始日","START_DATE","timestamp",,,"","",$FFFFFFFF,""
+Field="期限日","LIMIT_DATE","timestamp",,,"","",$FFFFFFFF,""
+Field="メモ","MEMO","@VARCHAR(300)",,,"","",$FFFFFFFF,""
+Field="タスク完了日時","TASK_COMPLETE_DATE","timestamp",,,"","",$FFFFFFFF,""
+Field="作成日時","CREATE_DATE","timestamp",,,"","task_managementの作成日時",$FFFFFFFF,""
+Field="更新日時","UPDATE_DATE","timestamp",,,"","task_managementの更新日時",$FFFFFFFF,""
+Field="バックアップ日時","BACKUP_DATE","timestamp",,,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20210910103851
+Position="Main",100,750,1042,573
+ZOrder=5
